@@ -1,0 +1,156 @@
+#include <iostream>              
+#include <string>                
+#include <vector>                
+using namespace std;            
+
+
+//Class: Person
+
+class Person {
+protected:
+    string Name;                
+    string SSNum;               
+    int Age;                    
+
+public:
+    // Байгуулагч функц
+    Person(string Name = "", string SSNum = "", int Age = 0)
+        : Name(Name), SSNum(SSNum), Age(Age) {}
+
+    // Getter for Name
+    string getName() const { return Name; }
+
+    // Getter for SSNum
+    string getSSNum() const { return SSNum; }
+
+    // Getter for Age
+    int getAge() const { return Age; }
+
+    // Setter for Name
+    void setName(string n) { Name = n; }
+
+    // Setter for SSNum
+    void setSSNum(string s) { SSNum = s; }
+
+    // Setter for Age
+    void setAge(int a) { Age = a; }
+};
+
+
+// Spouse Class (Person-оос удамшина)
+class Spouse : public Person {
+private:
+    string AnniversaryDate;    
+
+public:
+    // Getter for AnniversaryDate
+    string getAnniversaryDate() const { return AnniversaryDate; }
+
+    // Setter for AnniversaryDate
+    void setAnniversaryDate(string date) { AnniversaryDate = date; }
+};
+
+
+// Child Class (Person-оос удамшина)
+class Child : public Person {
+private:
+    string FavoriteToy;        
+
+public:
+    // Getter for FavoriteToy
+    string getFavoriteToy() const { return FavoriteToy; }
+
+    // Setter for FavoriteToy
+    void setFavoriteToy(string toy) { FavoriteToy = toy; }
+};
+
+
+// Division Class
+class Division {
+private:
+    string DivisionName;      
+
+public:
+    // Getter for DivisionName
+    string getDivisionName() const { return DivisionName; }
+
+    // Setter for DivisionName
+    void setDivisionName(string Name) { DivisionName = Name; }
+};
+
+
+// JobDescription Class
+class JobDescription {
+private:
+    string Description;
+
+public:
+    // Getter for Description
+    string getDescription() const { return Description; }
+
+    // Setter for Description
+    void setDescription(string desc) { Description = desc; }
+};
+
+
+// Employee Class (inherits from Person)
+class Employee : public Person {
+private:
+    string CompanyID;                      
+    string Title;                          
+    string StartDate;                      
+
+    Spouse* s = nullptr;                   // Spouse объектын заагч (0 эсвэл 1 байж болно)
+    vector<Child> children;                // Хүүхдийн объектуудын жагсаалт (0-ээс олон байж болно)
+    Division* d = nullptr;                 // Хэлтсийн объектыг заагч (заавал оноох ёстой)
+    vector<JobDescription> jds;            // Ажлын тодорхойлолтын жагсаалт (1 ба түүнээс дээш)
+
+public:
+    // Division болон JobDescription оноох байгуулагч
+    Employee(Division* div, JobDescription jd) {
+        d = div;                           // Хэлтсийн заагч оноох
+        jds.push_back(jd);                 // Ажлын тодорхойлолтыг жагсаалт руу нэмэх
+    }
+
+    // Getter for CompanyID
+    string getCompanyID() const { return CompanyID; }
+
+    // Getter for Title
+    string getTitle() const { return Title; }
+
+    // Getter for StartDate
+    string getStartDate() const { return StartDate; }
+
+    // Setter for CompanyID
+    void setCompanyID(string id) { CompanyID = id; }
+
+    // Setter for Title
+    void setTitle(string t) { Title = t; }
+
+    // Setter for StartDate
+    void setStartDate(string date) { StartDate = date; }
+
+    // Spouse-ийн объектыг оноох
+    void setSpouse(Spouse* spouse) { s = spouse; }
+
+    // Spouse-ийн объектыг буцаах
+    Spouse* getSpouse() const { return s; }
+
+    // Хүүхдийг жагсаалтад нэмэх
+    void addChild(Child c) { children.push_back(c); }
+
+    // Хүүхдийн жагсаалтыг буцаах
+    vector<Child> getChildren() const { return children; }
+
+    // Set Division pointer
+    void setDivision(Division* div) { d = div; }
+
+    // Return Division pointer
+    Division* getDivision() const { return d; }
+
+    // Ажлын тодорхойлолт нэмэх
+    void addJobDescription(JobDescription jd) { jds.push_back(jd); }
+
+    // Бүх ажлын тодорхойлолтыг буцаах
+    vector<JobDescription> getJobDescriptions() const { return jds; }
+};
