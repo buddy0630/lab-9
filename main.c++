@@ -4,7 +4,7 @@
 using namespace std;
  
 // Base Class
-class Person {
+class Person {njdnfkd
 protected:
     string Name;
     string SSNum;
