@@ -228,23 +228,35 @@ int main() {
     emp3.addChild(child3);
 
     // Объектуудын мэдээллийг хэвлэх
-    cout << "Employee 1: " << emp1.getName() << ", Title: " << emp1.getTitle()
+    cout << "Employee 1: " << emp1.getName()
+         << ", Company ID: " << emp1.getCompanyID()
+         << ", Title: " << emp1.getTitle()
          << ", Division: " << emp1.getDivision()->getDivisionName()
          << ", Job Description: " << emp1.getJobDescriptions()[0].getDescription()
          << ", Spouse: " << emp1.getSpouse()->getName()
-         << ", Child: " << emp1.getChildren()[0].getName() << " (Favorite Toy: " << emp1.getChildren()[0].getFavoriteToy() << ")" << endl;
+         << ", Anniversary Date: " << emp1.getSpouse()->getAnniversaryDate()
+         << ", Child: " << emp1.getChildren()[0].getName()
+         << " (Favorite Toy: " << emp1.getChildren()[0].getFavoriteToy() << ")" << endl;
 
-    cout << "Employee 2: " << emp2.getName() << ", Title: " << emp2.getTitle()
+    cout << "Employee 2: " << emp2.getName()
+         << ", Company ID: " << emp2.getCompanyID()
+         << ", Title: " << emp2.getTitle()
          << ", Division: " << emp2.getDivision()->getDivisionName()
          << ", Job Description: " << emp2.getJobDescriptions()[0].getDescription()
          << ", Spouse: " << emp2.getSpouse()->getName()
-         << ", Child: " << emp2.getChildren()[0].getName() << " (Favorite Toy: " << emp2.getChildren()[0].getFavoriteToy() << ")" << endl;
+         << ", Anniversary Date: " << emp2.getSpouse()->getAnniversaryDate()
+         << ", Child: " << emp2.getChildren()[0].getName()
+         << " (Favorite Toy: " << emp2.getChildren()[0].getFavoriteToy() << ")" << endl;
 
-    cout << "Employee 3: " << emp3.getName() << ", Title: " << emp3.getTitle()
+    cout << "Employee 3: " << emp3.getName()
+         << ", Company ID: " << emp3.getCompanyID()
+         << ", Title: " << emp3.getTitle()
          << ", Division: " << emp3.getDivision()->getDivisionName()
          << ", Job Description: " << emp3.getJobDescriptions()[0].getDescription()
          << ", Spouse: " << emp3.getSpouse()->getName()
-         << ", Child: " << emp3.getChildren()[0].getName() << " (Favorite Toy: " << emp3.getChildren()[0].getFavoriteToy() << ")" << endl;
+         << ", Anniversary Date: " << emp3.getSpouse()->getAnniversaryDate()
+         << ", Child: " << emp3.getChildren()[0].getName()
+         << " (Favorite Toy: " << emp3.getChildren()[0].getFavoriteToy() << ")" << endl;
 
     return 0;
 }
