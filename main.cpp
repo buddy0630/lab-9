@@ -159,21 +159,54 @@ public:
 };
 
 int main() {
-    // Example usage of classes
-    Division div;
-    div.setDivisionName("Engineering");
+    // Division объектууд үүсгэх
+    Division div1;
+    div1.setDivisionName("Engineering");
 
-    JobDescription jd;
-    jd.setDescription("Develop software");
+    Division div2;
+    div2.setDivisionName("Marketing");
 
-    Employee emp(&div, jd);
-    emp.setName("John Doe");
-    emp.setCompanyID("12345");
-    emp.setTitle("Software Engineer");
+    Division div3;
+    div3.setDivisionName("Finance");
 
-    cout << "Employee: " << emp.getName() << ", Title: " << emp.getTitle() << endl;
-    cout << "Division: " << emp.getDivision()->getDivisionName() << endl;
-    cout << "Job Description: " << emp.getJobDescriptions()[0].getDescription() << endl;
+    // JobDescription объектууд үүсгэх
+    JobDescription jd1;
+    jd1.setDescription("Develop software");
+
+    JobDescription jd2;
+    jd2.setDescription("Create marketing campaigns");
+
+    JobDescription jd3;
+    jd3.setDescription("Manage company finances");
+
+    // Employee объектууд үүсгэх
+    Employee emp1(&div1, jd1);
+    emp1.setName("Alice Johnson");
+    emp1.setCompanyID("E001");
+    emp1.setTitle("Software Engineer");
+
+    Employee emp2(&div2, jd2);
+    emp2.setName("Bob Smith");
+    emp2.setCompanyID("E002");
+    emp2.setTitle("Marketing Specialist");
+
+    Employee emp3(&div3, jd3);
+    emp3.setName("Charlie Brown");
+    emp3.setCompanyID("E003");
+    emp3.setTitle("Financial Analyst");
+
+    // Объектуудын мэдээллийг хэвлэх
+    cout << "Employee 1: " << emp1.getName() << ", Title: " << emp1.getTitle()
+         << ", Division: " << emp1.getDivision()->getDivisionName()
+         << ", Job Description: " << emp1.getJobDescriptions()[0].getDescription() << endl;
+
+    cout << "Employee 2: " << emp2.getName() << ", Title: " << emp2.getTitle()
+         << ", Division: " << emp2.getDivision()->getDivisionName()
+         << ", Job Description: " << emp2.getJobDescriptions()[0].getDescription() << endl;
+
+    cout << "Employee 3: " << emp3.getName() << ", Title: " << emp3.getTitle()
+         << ", Division: " << emp3.getDivision()->getDivisionName()
+         << ", Job Description: " << emp3.getJobDescriptions()[0].getDescription() << endl;
 
     return 0;
 }
