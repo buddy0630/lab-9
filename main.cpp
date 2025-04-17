@@ -195,18 +195,57 @@ int main() {
     emp3.setCompanyID("E003");
     emp3.setTitle("Financial Analyst");
 
+    // Spouse объектууд үүсгэх ба Employee-д тохируулах
+    Spouse spouse1;
+    spouse1.setName("John Johnson");
+    spouse1.setAnniversaryDate("01/01/2010");
+    emp1.setSpouse(&spouse1);
+
+    Spouse spouse2;
+    spouse2.setName("Mary Smith");
+    spouse2.setAnniversaryDate("05/15/2015");
+    emp2.setSpouse(&spouse2);
+
+    Spouse spouse3;
+    spouse3.setName("Emily Brown");
+    spouse3.setAnniversaryDate("08/20/2020");
+    emp3.setSpouse(&spouse3);
+
+    // Child объектууд үүсгэх ба Employee-д тохируулах
+    Child child1;
+    child1.setName("Sophia Johnson");
+    child1.setFavoriteToy("Lego");
+    emp1.addChild(child1);
+
+    Child child2;
+    child2.setName("James Smith");
+    child2.setFavoriteToy("Action Figure");
+    emp2.addChild(child2);
+
+    Child child3;
+    child3.setName("Olivia Brown");
+    child3.setFavoriteToy("Doll");
+    emp3.addChild(child3);
+
     // Объектуудын мэдээллийг хэвлэх
     cout << "Employee 1: " << emp1.getName() << ", Title: " << emp1.getTitle()
          << ", Division: " << emp1.getDivision()->getDivisionName()
-         << ", Job Description: " << emp1.getJobDescriptions()[0].getDescription() << endl;
+         << ", Job Description: " << emp1.getJobDescriptions()[0].getDescription()
+         << ", Spouse: " << emp1.getSpouse()->getName()
+         << ", Child: " << emp1.getChildren()[0].getName() << " (Favorite Toy: " << emp1.getChildren()[0].getFavoriteToy() << ")" << endl;
 
     cout << "Employee 2: " << emp2.getName() << ", Title: " << emp2.getTitle()
          << ", Division: " << emp2.getDivision()->getDivisionName()
-         << ", Job Description: " << emp2.getJobDescriptions()[0].getDescription() << endl;
+         << ", Job Description: " << emp2.getJobDescriptions()[0].getDescription()
+         << ", Spouse: " << emp2.getSpouse()->getName()
+         << ", Child: " << emp2.getChildren()[0].getName() << " (Favorite Toy: " << emp2.getChildren()[0].getFavoriteToy() << ")" << endl;
 
     cout << "Employee 3: " << emp3.getName() << ", Title: " << emp3.getTitle()
          << ", Division: " << emp3.getDivision()->getDivisionName()
-         << ", Job Description: " << emp3.getJobDescriptions()[0].getDescription() << endl;
+         << ", Job Description: " << emp3.getJobDescriptions()[0].getDescription()
+         << ", Spouse: " << emp3.getSpouse()->getName()
+         << ", Child: " << emp3.getChildren()[0].getName() << " (Favorite Toy: " << emp3.getChildren()[0].getFavoriteToy() << ")" << endl;
 
     return 0;
 }
+
