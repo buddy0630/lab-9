@@ -1,8 +1,11 @@
-#include <iostream>              
-#include <string>                
-#include <vector>                
-using namespace std;            
-
+#include "Person.h"
+#include "Spouse.h"
+#include "Child.h"
+#include "Division.h"
+#include "JobDescription.h"
+#include "Employee.h"
+#include <iostream>
+using namespace std;
 
 //Class: Person
 
@@ -154,3 +157,23 @@ public:
     // Бүх ажлын тодорхойлолтыг буцаах
     vector<JobDescription> getJobDescriptions() const { return jds; }
 };
+
+int main() {
+    // Example usage of classes
+    Division div;
+    div.setDivisionName("Engineering");
+
+    JobDescription jd;
+    jd.setDescription("Develop software");
+
+    Employee emp(&div, jd);
+    emp.setName("John Doe");
+    emp.setCompanyID("12345");
+    emp.setTitle("Software Engineer");
+
+    cout << "Employee: " << emp.getName() << ", Title: " << emp.getTitle() << endl;
+    cout << "Division: " << emp.getDivision()->getDivisionName() << endl;
+    cout << "Job Description: " << emp.getJobDescriptions()[0].getDescription() << endl;
+
+    return 0;
+}
